@@ -11,7 +11,14 @@ class App extends Component {
     ]
   }
   switchNameHandler = () => {
-    console.log("test1111111");
+    // donnt  do this as we cannot mutate state directly ------------->>>this.state.persons[0].name="Jallam Kaushik Yadav"
+    this.setState({
+      persons:[
+        {name:"Jallam kaushik Yadav",age:24},
+        {name:"karthik",age:26},
+        {name:"Dev in making",age:1}
+      ]
+    })
   }
 
   render() {
