@@ -51,13 +51,11 @@ class App extends Component {
       padding:"8px",
       cursor:"pointer"
     }
-    return (
-      <div className="App">
-        <button 
-        style={style}
-        onClick={this.toggleHandler}>Toggle persons</button>
 
-        {this.state.showPersons?<div>
+    let persons=null;
+    if(this.state.showPersons){
+      persons=(
+        <div>
             <Person
             name={this.state.persons[0].name}
             age={this.state.persons[0].age}
@@ -69,7 +67,17 @@ class App extends Component {
             name={this.state.persons[1].name}
             age={this.state.persons[1].age}
             click={this.switchNameHandler.bind(this,'samara simha reddy')}/> 
-        </div>:null}
+         </div>
+      )
+   
+
+    }
+    return (
+      <div className="App">
+        <button 
+        style={style}
+        onClick={this.toggleHandler}>Toggle persons</button>
+        {persons}
         
       </div>
 
