@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Radium from 'radium'
 import Person from './Person/Person';
 import './App.css';
 
@@ -99,7 +98,8 @@ class App extends Component {
 
     }
     return (
-      <div className="App">
+     
+        <div className="App">
         <h1>Hi Iam react app</h1>
         <p className={classes.join(' ')}>This is really working</p>
         <button 
@@ -108,9 +108,11 @@ class App extends Component {
         {persons}
         
       </div>
+     
+      
 
     );
   }
 }
 
-export default Radium(App);
+export default App;
