@@ -4,7 +4,10 @@ import classes from './Cockpit.css'
 const cockpit=(props)=>{
   useEffect(()=>{
     console.log("[cockpit.js] use effect");
-  })
+    setTimeout(()=>{
+      alert("use  effect executed")
+    },1000)
+  },[props.persons])
     const assignedClasses = [];
     let btnClass = '';
     if(props.showPersons){
