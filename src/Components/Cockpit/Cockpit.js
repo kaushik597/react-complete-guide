@@ -7,7 +7,7 @@ const cockpit=(props)=>{
     setTimeout(()=>{
       alert("use  effect executed")
     },1000)
-  },[props.persons])
+  },[])
     const assignedClasses = [];
     let btnClass = '';
     if(props.showPersons){
