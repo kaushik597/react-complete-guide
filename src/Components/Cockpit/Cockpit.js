@@ -7,7 +7,17 @@ const cockpit=(props)=>{
     setTimeout(()=>{
       alert("use  effect executed")
     },1000)
+    return ()=>{
+      console.log("[cockpit.js] cleanup work in use effect");
+    }
   },[])
+
+  useEffect(()=>{
+    console.log("[cockpit.js]2 use effect");
+    return ()=>{
+      console.log("[cockpit.js] cleanup work in 2 use effect");
+    }
+  })
     const assignedClasses = [];
     let btnClass = '';
     if(props.showPersons){
