@@ -3,7 +3,9 @@ import classes from './App.css';
 // import Person from '../Components/Persons/Person/Person';
 import Persons from '../Components/Persons/Persons'
 import Cockpit from '../Components/Cockpit/Cockpit';
-import WithClass from '../hoc/WithClass'
+// import WithClass from '../hoc/withClass'
+import Auxilliary from '../hoc/Auxilliary'
+import withClass from '../hoc/withClass'
 
 class App extends Component {
   constructor(props){
@@ -88,19 +90,22 @@ class App extends Component {
     return (
       // <div className={classes.App}>
 
-      <WithClass classes={classes.App}>
-        <button onClick={()=>{this.setState({showCockPit:false})}}>
+      // <WithClass classes={classes.App}>
+      <Auxilliary>
+        <button onClick={() => { this.setState({ showCockPit: false }) }}>
           Show  cockpit
         </button>
         {
-       this.state.showCockPit ? <Cockpit 
-       title={this.props.appTitle}
-       showPersons={this.state.showPersons}
-       personsLength={this.state.persons.length}
-       toggle={this.togglePersonsHandler} />:null
-      }
+          this.state.showCockPit ? <Cockpit
+            title={this.props.appTitle}
+            showPersons={this.state.showPersons}
+            personsLength={this.state.persons.length}
+            toggle={this.togglePersonsHandler} /> : null
+        }
         {persons}
-      </WithClass>
+      </Auxilliary>
+      
+      // </WithClass>
         
       
       // </div>
@@ -109,4 +114,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withClass(App,classes.App);
