@@ -3,6 +3,7 @@ import classes from './App.css';
 // import Person from '../Components/Persons/Person/Person';
 import Persons from '../Components/Persons/Persons'
 import Cockpit from '../Components/Cockpit/Cockpit';
+import WithClass from '../hoc/WithClass'
 
 class App extends Component {
   constructor(props){
@@ -85,7 +86,9 @@ class App extends Component {
     
 
     return (
-      <div className={classes.App}>
+      // <div className={classes.App}>
+
+      <WithClass classes={classes.App}>
         <button onClick={()=>{this.setState({showCockPit:false})}}>
           Show  cockpit
         </button>
@@ -97,7 +100,10 @@ class App extends Component {
        toggle={this.togglePersonsHandler} />:null
       }
         {persons}
-      </div>
+      </WithClass>
+        
+      
+      // </div>
     );
     // return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Does this work now?'));
   }
