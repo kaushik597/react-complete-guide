@@ -1,6 +1,7 @@
 import React ,{Component} from 'react';
 import Auxilliary from '../../../hoc/Auxilliary'
 import classes from './Person.css';
+import withClass from '../../../hoc/withClass'
 
 class Person extends Component{
   render(){
@@ -8,13 +9,13 @@ class Person extends Component{
     return (
       // <div className={classes.Person}>
       // <Auxilliary>
-      <React.Fragment>
+      <Auxilliary>
         <p onClick={this.props.click}>
               I'm {this.props.name} and I am {this.props.age} years old!
             </p>
             <p>{this.props.children}</p>
             <input type="text" onChange={this.props.changed} value={this.props.name} />
-      </React.Fragment>
+      </Auxilliary>
             
           // </Auxilliary>
        
@@ -25,4 +26,4 @@ class Person extends Component{
  
 };
 
-export default Person;
+export default withClass(Person,classes.Person);
