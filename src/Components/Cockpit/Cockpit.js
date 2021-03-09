@@ -1,12 +1,15 @@
-import React, {useEffect} from 'react'
+import React, {useEffect,  useRef} from 'react'
 import classes from './Cockpit.css'
 
 const cockpit=(props)=>{
+
+  const toggleBtnRef=useRef(null)
   useEffect(()=>{
     console.log("[cockpit.js] use effect");
-    setTimeout(()=>{
-      alert("use  effect executed")
-    },1000)
+    // setTimeout(()=>{
+    //   alert("use  effect executed")
+    // },1000)
+    toggleBtnRef.current.click();
     return ()=>{
       console.log("[cockpit.js] cleanup work in use effect");
     }
@@ -33,7 +36,7 @@ const cockpit=(props)=>{
         <di className={classes.Cockpit}>
         <h1>{props.title}</h1>
         <p className={assignedClasses.join(' ')}>This is really working!</p>
-        <button className={btnClass} onClick={props.toggle}>
+        <button ref={toggleBtnRef} className={btnClass} onClick={props.toggle}>
           Toggle Persons
         </button>
     </di>
